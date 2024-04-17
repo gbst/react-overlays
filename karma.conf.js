@@ -1,7 +1,18 @@
-const { rules, plugins } = require('webpack-atoms')
+const { rules, plugins } = require('webpack-atoms');
+
+// for tests to run under WSL, you will have to configure karma
+// https://stackoverflow.com/questions/54090298/karma-use-windows-chrome-from-wsl
+// and you have to make sure browser has focus
+
+// fix 0308010C:digital envelope routines::unsupported
+// webpack 5.54+ fix this
+const crypto = require('crypto');
+const cryptoOrigCreateHash = crypto.createHash;
+crypto.createHash = algorithm =>
+  cryptoOrigCreateHash(algorithm === 'md4' ? 'sha256' : algorithm);
 
 module.exports = config => {
-  const { env } = process
+  const { env } = process;
 
   config.set({
     frameworks: ['mocha', 'sinon-chai'],
@@ -49,5 +60,5 @@ module.exports = config => {
     },
 
     browsers: env.BROWSER ? env.BROWSER.split(',') : ['Chrome'],
-  })
-}
+  });
+};
