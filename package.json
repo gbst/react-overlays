@@ -1,12 +1,11 @@
 {
   "name": "gbst-react-overlays",
-  "author": "Jason Quense <monastic.panic@gmail.com>",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "A fork of react-overlays for GBST needs",
-  "homepage": "https://github.com/landbased/react-overlays",
+  "homepage": "https://github.com/gbst/react-overlays",
   "repository": {
     "type": "git",
-    "url": "https://github.com/landbased/react-overlays"
+    "url": "https://github.com/gbst/react-overlays"
   },
   "license": "MIT",
   "main": "lib/index.js",
